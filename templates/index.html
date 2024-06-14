@@ -1,0 +1,286 @@
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, 
+          initial-scale=1.0"/>
+    <title>Tailwind CSS Example</title>
+    <link href="{% static '' %}output.css" rel="stylesheet"/>
+</head>
+
+
+<body>
+<div class="h-screen bg-head-custom font-[kalame-bold]">
+    <img class="absolute top-0 right-0" src="{% static '' %}assets/images/headbg.png" alt="">
+    <div class="flex flex-row px-4 py-3 sm:flex-row sm:items-center rtl-grid sm:justify-center sm:h-32">
+        <img id="burgermenu" class="w-10 z-0 sm:hidden" src="{% static '' %}assets/images/burgermenu.svg" alt="burger">
+        <img id="burgermenuopen" class="absolute top-2 right-3 w-12 z-0 hidden sm:hidden"
+             src="{% static '' %}assets/images/closeicon.svg" alt="burger">
+        <img class="custom-top-10 w-28 absolute left-1/2 center-cx sm:right-0 sm:left-auto sm:top-3"
+             src="{% static '' %}assets/images/mainlogo.svg" alt="">
+        <div id="listNavbar" class="hidden z-0 sm:flex bg-white px-3 py-2 rounded-3xl gap-4 rtl-grid">
+            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="#">خانه</a>
+            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="#">ارتباط با ما</a>
+            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="#">مقالات</a>
+        </div>
+    </div>
+    <div class="absolute max-[1200px]:w-96 top-80 p-4 text-4xl right-20 max-[850px]:right-0 max-[850px]:text-2xl">
+        <h1 class="text-black rtl-grid">هر آنچه در بیزنس خود به آن نیاز دارید اینجاست !!</h1>
+        <div
+                class="flex items-center justify-start font-[kalame-regular] flex-row-reverse gap-1 bg-button w-fit p-1 px-2 rounded-full mt-8">
+            <a class="text-lg" href="#">اعضای تیم</a>
+            <img src="{% static '' %}assets/images/play.png" alt="play">
+        </div>
+    </div>
+    <img class="max-[850px]:w-80 w-custom400 absolute bottom-0" src="{% static '' %}assets/images/linear1.png"
+         alt="linear">
+    <div class="max-[850px]:w-80 w-custom400 absolute bottom-0 max-[850px]:-bottom-60">
+        <div class="relative">
+            <div class="absolute c-bottom-head h-full w-full">
+
+                <a class="absolute max-[850px]:top-6 top-28 left-6 max-[850px]:left-10"
+                   href="{{ profiles.0.get_absolute_url }}"><img
+                        class="w-20 max-[850px]:w-12 rounded-full" src="{{ profiles.0.get_image_url }}" alt="user">
+                    <p class="text-center">{{ profiles.0 }}</p>
+                </a>
+
+                <a class=" absolute max-[850px]:top-32 c-top-pos370 left-14 max-[850px]:left-56"
+                   href="{{ profiles.1.get_absolute_url }}"><img
+                        class="w-20 max-[850px]:w-12 rounded-full" src="{{ profiles.1.get_image_url }}" alt="user">
+                    <p class="text-center">{{ profiles.1 }}</p>
+                </a>
+                <a class=" absolute max-[850px]:top-52 top-36 left-80 max-[850px]:left-12"
+                   href="{{ profiles.2.get_absolute_url }}"><img
+                        class="w-20 max-[850px]:w-12 rounded-full" src="{{ profiles.2.get_image_url }}" alt="user">
+                    <p class="text-center">{{ profiles.2 }}</p>
+                </a>
+                <a class="absolute max-[850px]:top-32 top-80 left-56 max-[850px]:left-32"
+                   href="{{ profiles.3.get_absolute_url }}"><img
+                        class="w-20 max-[850px]:w-12 rounded-full" src="{{ profiles.3.get_image_url }}" alt="user">
+                    <p class="text-center">{{ profiles.3 }}</p>
+                </a>
+                <a class="absolute max-[850px]:top-64 c-top-pos370 left-96 max-[850px]:left-56"
+                   href="{{ profiles.4.get_absolute_url }}"><img
+                        class="w-20 max-[850px]:w-12 rounded-full" src="{{ profiles.4.get_image_url }}" alt="user">
+                    <p class="text-center">{{ profiles.4 }}</p>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="h-7 bg-line-custom"></div>
+    <div class="flex flex-col">
+        <div class="flex flex-col lg:flex-row lg:justify-center lg:items-center lg:mx-12">
+            <div class="mt-14 lg:basis-1/2">
+                <img src="{% static '' %}assets/images/bgaboutus.png" alt="aboutus"/>
+            </div>
+            <div class="mx-7 lg:basis-1/2">
+                <div class="rtl-grid">
+                    <div class="font-bold text-2xl ps-0 p-2 lg:p-10 lg:ps-0">
+                        <h2 class="font-[kalame-bold] lg:text-4xl">درباره ما</h2>
+                    </div>
+                    <div
+                            class="font-[kalame-medium] font-black pb-4 lg:text-xl lg:font-[kalame-regular] leading-8 lg:leading-[40px] lg:tracking-wide">
+                        {{ front_setting.about_us_text|linebreaks }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-center flex-col pt-6 rtl-grid">
+            <div>
+                <h3 class="font-[kalame-bold] text-xl text-center mb-3 lg:text-3xl">
+                    مهارت ها و ابزارها
+                </h3>
+            </div>
+
+            <div>
+                <p class="font-[kalame-medium] text-sm text-center lg:text-base">
+                    مهارت‌ها و ابزارهای متنوعی که تیم ما به آنها مسلط هستند
+                </p>
+            </div>
+        </div>
+        <div class="flex flex-row lg:gap-7 gap-3 overflow-scroll overflow-y-hidden mt-7 lg:pb-4">
+            {% for skill in skills %}
+                <div
+                        class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
+                    <div class="">
+                        <img class="h-[57px] lg:h-[88px] rounded-2xl"
+                             src="{{ skill.get_image_url }}"
+                             alt=""/>
+                    </div>
+                    <p class="text-base mt-4 font-bold lg:text-xl">{{ skill.name }}</p>
+                </div>
+            {% endfor %}
+
+        </div>
+        <div class="flex justify-center flex-row lg:pt-24 pt-16 rtl-grid">
+            <div>
+                <h3 class="font-[kalame-bold] text-xl text-center lg:text-3xl">
+                    مقالات
+                </h3>
+            </div>
+            <a href="#">
+                <div
+                        class="flex flex-row justify-center items-center border-black rounded-3xl border absolute left-2 p-1">
+                    <div class="flex justify-center items-center">
+                        <p class="p-1 font-[kalame-medium]">نمایش همه</p>
+                    </div>
+                    <div class="p-1">
+                        <img class="" src="{% static '' %}assets/images/icons/back_arrow.svg" alt=""/>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div
+                class="flex flex-row lg:gap-6 gap-3 overflow-scroll overflow-y-hidden my-7 font-[kalame-medium] lg:pb-4">
+            <div
+                    class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
+                <div class="p-2">
+                    <img class="h-[82px] w-[124px] lg:h-[88px] rounded-2xl" src="{% static '' %}assets/images/ui.png"
+                         alt=""/>
+                </div>
+                <div class="rtl-grid px-2 pb-2">
+                    <p class="text-base font-bold lg:text-xl">UI چیست ؟</p>
+                    <p class="text-xs whitespace-nowrap mt-1">
+                        UI مخفف کلمه User ...
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="pt-16 lg:pt-24">
+            <div>
+                <h3 class="font-[kalame-bold] text-xl text-center lg:text-3xl pb-10">
+                    اعضا
+                </h3>
+            </div>
+            <div class="flex flex-wrap gap-2 lg:gap-6 px-7 justify-center font-[kalame-bold] ">
+                <div
+                        class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center   items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
+                    <div class="">
+                        <img class="h-[82px] w-[124px] lg:h-[88px] rounded-lg"
+                             src="{% static '' %}assets/images/user.png"
+                             alt=""/>
+                    </div>
+                    <div class="rtl-grid px-2">
+                        <p class="text-base font-bold lg:text-xl">جعفر طیار</p>
+                        <p class="text-base font-bold whitespace-nowrap mt-1">
+                            SCRUM MASTER
+                        </p>
+                    </div>
+                </div>
+                <div
+                        class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
+                    <div class="">
+                        <img class="h-[82px] w-[124px] lg:h-[88px] rounded-lg"
+                             src="{% static '' %}assets/images/user.png"
+                             alt=""/>
+                    </div>
+                    <div class="rtl-grid px-2">
+                        <p class="text-base font-bold lg:text-xl">جعفر طیار</p>
+                        <p class="text-base font-bold whitespace-nowrap mt-1">
+                            SCRUM MASTER
+                        </p>
+                    </div>
+                </div>
+                <div
+                        class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
+                    <div class="">
+                        <img class="h-[82px] w-[124px] lg:h-[88px] rounded-lg"
+                             src="{% static '' %}assets/images/user.png"
+                             alt=""/>
+                    </div>
+                    <div class="rtl-grid px-2">
+                        <p class="text-base font-bold lg:text-xl">جعفر طیار</p>
+                        <p class="text-base font-bold whitespace-nowrap mt-1">
+                            SCRUM MASTER
+                        </p>
+                    </div>
+                </div>
+                <div
+                        class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
+                    <div class="">
+                        <img class="h-[82px] w-[124px] lg:h-[88px] rounded-lg"
+                             src="{% static '' %}assets/images/user.png"
+                             alt=""/>
+                    </div>
+                    <div class="rtl-grid px-2">
+                        <p class="text-base font-bold lg:text-xl">جعفر طیار</p>
+                        <p class="text-base font-bold whitespace-nowrap mt-1">
+                            SCRUM MASTER
+                        </p>
+                    </div>
+                </div>
+                <div
+                        class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
+                    <div class="">
+                        <img class="h-[82px] w-[124px] lg:h-[88px] rounded-lg"
+                             src="{% static '' %}assets/images/user.png"
+                             alt=""/>
+                    </div>
+                    <div class="rtl-grid px-2">
+                        <p class="text-base font-bold lg:text-xl">جعفر طیار</p>
+                        <p class="text-base font-bold whitespace-nowrap mt-1">
+                            SCRUM MASTER
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-center relative pt-10">
+            <img src="{% static '' %}assets/images/linearbg.png" alt=""/>
+            <div class="absolute top-1/2 rtl-grid"
+            ">
+            <div class=" h-7 bg-line-custom"></div>
+            <div
+                    class="bg-footer  flex flex-col lg:flex-row lg:gap-8 lg:py-9 lg:px-36  justify-center px-7 rtl-grid ">
+                <div class="lg:basis-1/2">
+                    <div class="flex justify-center items-center">
+                        <img class="h-32 lg:h-40 " src="{% static '' %}assets/images/mainlogo.svg" alt=""/>
+                    </div>
+                    <div class="pb-8 lg:relative lg:-top-8   ">
+                        <p class="font-[kalame-regular] ">
+                            لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی
+                            آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و لورم ایپسوم یا
+                            طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در
+                            صنعت چاپ، صفحه‌آرایی و طراحی گرافیک
+                        </p>
+                    </div>
+                </div>
+                <div class="lg:basis-1/2 lg:pt-8  lg:relative lg:top-11">
+                    <div class=" ">
+                        <div>
+                            <h3 class="font-[kalame-bold] font-bold pb-2 ">تماس با ما</h3>
+                        </div>
+                        <div>
+                            <p class="font-[kalame-regular]">
+                                لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی
+                                آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-row  justify-between items-center py-10 lg:py-5  lg:items-start">
+                        <div>
+                            <h3 class="font-[kalame-bold]  font-bold  "> شماره تماس </h3>
+                        </div>
+                        <div>
+                            <p class="font-bold">021-222-2222</p>
+                            <p class="font-bold">021-222-2222</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-line-footer h-[65px]  flex justify-center items-center ">
+                <p class="font-[kalame-medium] text-white text-base rtl-grid">تمامی حقوق محفوظ است.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="./index.js"></script>
+</body>
+
+</html>

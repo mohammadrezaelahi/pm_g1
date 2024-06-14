@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.center-cy {
+    transform: translateY(-50%);
+}
+
+.center-cx {
+    transform: translateX(-50%);
+}
+
+.bg-head-custom {
+    background-color: #AEC6FF;
+}
+
+.custom-top-10 {
+    top: -20px;
+}
+
+
+.bg-line-custom {
+    background-color: #575E71;
+}
+
+.bg-line-footer {
+    background-color: #715573;
+}
+
+.rtl-grid {
+    direction: rtl;
+}
+
+.left-none {
+    left: none;
+}
+
+.w-custom400 {
+    width: 450px;
+}
+
+.c-top-pos310 {
+    top: 310px;
+}
+
+.c-top-pos {
+    top: 330px;
+}
+
+.h-custom400 {
+    height: 450px;
+}
+
+.l-custom230 {
+    left: 230px;
+}
+
+.bg-button {
+    background-color: #455e91;
+}
+
+@font-face {
+    font-family: kalame-thin;
+    src: url('/static/assets/fonts/KalamehWeb-Thin.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: kalame-regular;
+    src: url('/static/assets/fonts/KalamehWeb-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: kalame-bold;
+    src: url('/static/assets/fonts/KalamehWeb-Bold.woff2') format('woff2');
+
+}
+
+@font-face {
+    font-family: kalame-semibold;
+    src: url('/static/assets/fonts/KalamehWeb-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: kalame-medium;
+    src: url('/static/assets/fonts/KalamehWeb-Medium.woff2') format('woff2');
+}
+
+.rounded-1xl {
+    border-radius: 14px;
+}
+
+.bg-footer {
+    background-color: #A8D0B5;
+}
+
+.center-cy {
+    transform: translateY(-50%);
+}
+
+.center-cx {
+    transform: translateX(-50%);
+}
+
+.bg-head-custom {
+    background-color: #AEC6FF;
+}
+
+.custom-top-10 {
+    top: -20px;
+}
+
+/* articles */
+.text-c-big {
+    font-size: 60px;
+}
+
+.bg-card {
+    background-color: #DBE2F9;
+}
+
+.bg-s-card {
+    background-color: #E8DEF8;
+}
+
+/* articles */
+.bg-line-custom {
+    background-color: #575E71;
+}
+
+.rtl-grid {
+    direction: rtl;
+}
+
+.left-none {
+    left: none;
+}
+
+.w-custom400 {
+    width: 550px;
+}
+
+
+.c-top-pos250 {
+    top: 420px;
+}
+
+.c-top-huge-neg {
+    bottom: -200px;
+}
+
+.c-top-pos310 {
+    top: 310px;
+}
+
+.c-top-pos370 {
+    top: 430px;
+}
+
+.c-bottom-head {
+    bottom: 600px;
+}
+
+.c-top-pos {
+    top: 330px;
+}
+
+.h-custom400 {
+    height: 450px;
+}
+
+.l-custom230 {
+    left: 200px;
+}
+
+.bg-button {
+    background-color: #455e91;
+}
+.bg-button {
+    background-color: #455e91;
+}
+.inputs{
+    background-color: #D9D9D9;
+    border: #D9D9D9;
+    border-radius: 10px ;
+}
