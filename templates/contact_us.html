@@ -1,0 +1,99 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ارتباط با ما</title>
+    <link href="{% static '' %}output.css" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="h-screen bg-head-custom font-[kalame-bold]">
+    <img class="absolute top-0 right-0 w-96 " src="{% static '' %}assets/images/headbg.png" alt="">
+    <div class="flex flex-row px-4 py-3 sm:flex-row sm:items-center rtl-grid sm:justify-center sm:h-32">
+        <img id="burgermenu" class="w-10 z-0 sm:hidden" src="{% static '' %}assets/images/burgermenu.svg" alt="burger">
+        <img id="burgermenuopen" class="absolute top-2 right-3 w-12 z-0 hidden sm:hidden"
+             src="{% static '' %}assets/images/closeicon.svg" alt="burger">
+        <img class="custom-top-10 w-28 absolute left-1/2 center-cx sm:right-0 sm:left-auto sm:top-3"
+             src="{% static '' %}assets/images/mainlogo.svg" alt="">
+        <div id="listNavbar" class="hidden z-0 sm:flex bg-white px-3 py-2 rounded-3xl gap-4 rtl-grid">
+            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="/">خانه</a>
+            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="{% url 'core:contact_us' %}">ارتباط با ما</a>
+            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="/#blogs">مقالات</a>
+        </div>
+    </div>
+    <div
+            class="absolute max-[1200px]:w-96 max-[850px]:top-32 top-80 p-4 text-4xl right-20 max-[850px]:right-0 max-[850px]:text-2xl">
+        <h1 class="text-black rtl-grid max-[1200px]:text-4xl text-c-big">ارتباط با ما</h1>
+        <p class="text-xl rtl-grid pt-8"> ایده‌هایتان را با ما به اشتراک بگذارید!</p>
+    </div>
+    <div class="p-4 absolute bottom-20 max-[850px]:left-0 left-10">
+        <img src="{% static '' %}assets/images/bgcallus.png" alt="">
+    </div>
+
+</div>
+<div class=" h-7 bg-line-custom"></div>
+<div class="flex flex-col  justify-center items-center ">
+
+    <form action="" method="POST"
+          class="flex justify-center items-center rtl-grid flex-col font-[kalame-bold] text-sm  md:text-base  my-10  md:my-24 gap-5 w-2/3">
+        {% csrf_token %}
+        <div class="flex md:flex-row flex-col justify-center items-center lg:gap-16 gap-5 w-full ">
+            <div class="flex flex-col justify-start w-full  "><label for="name" class="px-2 pb-2"> نام</label>
+                <input id="name" type="text" class="inputs  h-12   " name="first_name"></div>
+            <div class="flex flex-col justify-start w-full "><label for="family" class="px-2 pb-2"> نام
+                خانوادگی</label>
+                <input id="family" type="text" class="inputs h-12" name="last_name"></div>
+        </div>
+        <div class="flex md:flex-row flex-col justify-center items-center lg:gap-16 w-full gap-5">
+            <div class="flex flex-col justify-start w-full "><label for="email" class="px-2 pb-2"> موضوع</label>
+                <input id="email" type="text" class="inputs h-12 " name="subject"></div>
+            <div class="flex flex-col justify-start w-full "><label for="phone" class="px-2 pb-2"> شماره
+                تماس </label>
+                <input id="phone" type="number" class="inputs  h-12 " name="phone"></div>
+        </div>
+        <div class="w-full ">
+            <div class="flex flex-col justify-start w-full "><label for="reqtext" class="px-2 pb-2"> متن
+                پیام</label>
+                <textarea name="message" id="reqtext" cols="20" rows="6"
+                          class="max-[425px]:h-[150px] inputs  appearance-none md:mt-1 block w-full h-64 px-3 py-2"></textarea>
+            </div>
+
+        </div>
+        <div class="flex justify-center items-center ">
+            <button
+                    class="bg-[#455E91] md:h-12 md:w-52 w-40 h-10  md:py-2 mt-6 md:mb-0 mb-8   md:mt-0  rounded-3xl text-xl text-white">
+                ارسال پیام
+            </button>
+
+        </div>
+    </form>
+
+    <div class="flex sm:w-2/3 w-full md:flex-row flex-col  justify-center items-center  font-[kalame-bold] text-sm px-10  gap-5  mb-8 ">
+
+        <div class="flex flex-col text-end gap-2  md:h-[100px] p-4  bg-[#DBE2F9] rounded-xl md:w-3/5  w-full ">
+            <p>شبکه های اجتماعی ما </p>
+            <div class="flex flex-row   justify-center    gap-3 ">
+                {% for social in socials %}
+                    <a href="{{ social.link }}"><img src="{{ social.get_image_url }}" alt="{{ social }}" class="w-10 h-10  "></a>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class=" bg-[#DBE2F9] rounded-xl md:w-2/5 w-full p-4  md:h-[100px]">
+            <div class=" text-end ">شماره تماس</div>
+            <div class="text-start ">
+                <p>{{ front_setting.phone_1 }}</p>
+                <p>{{ front_setting.phone_2 }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class=" h-7 bg-line-custom w-full"></div>
+    {% include 'partials/footer.html' %}
+</div>
+<script src="{% static '' %}index.js"></script>
+</body>
+
+</html>

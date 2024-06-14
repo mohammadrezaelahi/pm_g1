@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, 
           initial-scale=1.0"/>
-    <title>Tailwind CSS Example</title>
+    <title>صفحه اصلی</title>
     <link href="{% static '' %}output.css" rel="stylesheet"/>
 </head>
 
@@ -20,9 +20,9 @@
         <img class="custom-top-10 w-28 absolute left-1/2 center-cx sm:right-0 sm:left-auto sm:top-3"
              src="{% static '' %}assets/images/mainlogo.svg" alt="">
         <div id="listNavbar" class="hidden z-0 sm:flex bg-white px-3 py-2 rounded-3xl gap-4 rtl-grid">
-            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="#">خانه</a>
-            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="#">ارتباط با ما</a>
-            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="#">مقالات</a>
+            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="/">خانه</a>
+            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="{% url 'core:contact_us' %}">ارتباط با ما</a>
+            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="#blogs">مقالات</a>
         </div>
     </div>
     <div class="absolute max-[1200px]:w-96 top-80 p-4 text-4xl right-20 max-[850px]:right-0 max-[850px]:text-2xl">
@@ -116,13 +116,14 @@
             {% endfor %}
 
         </div>
-        <div class="flex justify-center flex-row lg:pt-24 pt-16 rtl-grid">
+        <div class="flex justify-center flex-row lg:pt-24 pt-16 rtl-grid"  id="blogs">
             <div>
                 <h3 class="font-[kalame-bold] text-xl text-center lg:text-3xl">
                     مقالات
                 </h3>
             </div>
-            <a href="#">
+
+            <a href="{% url 'blog:home' %}">
                 <div
                         class="flex flex-row justify-center items-center border-black rounded-3xl border absolute left-2 p-1">
                     <div class="flex justify-center items-center">
@@ -136,19 +137,22 @@
         </div>
         <div
                 class="flex flex-row lg:gap-6 gap-3 overflow-scroll overflow-y-hidden my-7 font-[kalame-medium] lg:pb-4">
-            <div
-                    class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
-                <div class="p-2">
-                    <img class="h-[82px] w-[124px] lg:h-[88px] rounded-2xl" src="{% static '' %}assets/images/ui.png"
-                         alt=""/>
+            {% for post in posts %}
+                <div
+                        class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
+                    <div class="p-2">
+                        <img class="h-[82px] w-[124px] lg:h-[88px] rounded-2xl"
+                             src="{{post.get_image_url}}"
+                             alt="{{ post.title }}"/>
+                    </div>
+                    <div class="rtl-grid px-2 pb-2">
+                        <a href="{{ post.get_absolute_url }}"><p class="text-base font-bold lg:text-xl">{{ post.title }}</p></a>
+                        <p class="text-xs whitespace-nowrap mt-1">
+                            {{ post.short_desc|truncatechars:20 }}
+                        </p>
+                    </div>
                 </div>
-                <div class="rtl-grid px-2 pb-2">
-                    <p class="text-base font-bold lg:text-xl">UI چیست ؟</p>
-                    <p class="text-xs whitespace-nowrap mt-1">
-                        UI مخفف کلمه User ...
-                    </p>
-                </div>
-            </div>
+            {% endfor %}
 
         </div>
         <div class="pt-16 lg:pt-24">
@@ -158,129 +162,35 @@
                 </h3>
             </div>
             <div class="flex flex-wrap gap-2 lg:gap-6 px-7 justify-center font-[kalame-bold] ">
+                {% for profile in profiles %}
                 <div
                         class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center   items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
                     <div class="">
                         <img class="h-[82px] w-[124px] lg:h-[88px] rounded-lg"
-                             src="{% static '' %}assets/images/user.png"
+                             src="{{profile.get_image_url}}"
                              alt=""/>
                     </div>
                     <div class="rtl-grid px-2">
-                        <p class="text-base font-bold lg:text-xl">جعفر طیار</p>
+                        <a href="{{ profile.get_absolute_url }}"><p class="text-base font-bold lg:text-xl">{{ profile.full_name}}</p></a>
                         <p class="text-base font-bold whitespace-nowrap mt-1">
-                            SCRUM MASTER
+                            {{ profile.role }}
                         </p>
                     </div>
                 </div>
-                <div
-                        class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
-                    <div class="">
-                        <img class="h-[82px] w-[124px] lg:h-[88px] rounded-lg"
-                             src="{% static '' %}assets/images/user.png"
-                             alt=""/>
-                    </div>
-                    <div class="rtl-grid px-2">
-                        <p class="text-base font-bold lg:text-xl">جعفر طیار</p>
-                        <p class="text-base font-bold whitespace-nowrap mt-1">
-                            SCRUM MASTER
-                        </p>
-                    </div>
-                </div>
-                <div
-                        class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
-                    <div class="">
-                        <img class="h-[82px] w-[124px] lg:h-[88px] rounded-lg"
-                             src="{% static '' %}assets/images/user.png"
-                             alt=""/>
-                    </div>
-                    <div class="rtl-grid px-2">
-                        <p class="text-base font-bold lg:text-xl">جعفر طیار</p>
-                        <p class="text-base font-bold whitespace-nowrap mt-1">
-                            SCRUM MASTER
-                        </p>
-                    </div>
-                </div>
-                <div
-                        class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
-                    <div class="">
-                        <img class="h-[82px] w-[124px] lg:h-[88px] rounded-lg"
-                             src="{% static '' %}assets/images/user.png"
-                             alt=""/>
-                    </div>
-                    <div class="rtl-grid px-2">
-                        <p class="text-base font-bold lg:text-xl">جعفر طیار</p>
-                        <p class="text-base font-bold whitespace-nowrap mt-1">
-                            SCRUM MASTER
-                        </p>
-                    </div>
-                </div>
-                <div
-                        class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
-                    <div class="">
-                        <img class="h-[82px] w-[124px] lg:h-[88px] rounded-lg"
-                             src="{% static '' %}assets/images/user.png"
-                             alt=""/>
-                    </div>
-                    <div class="rtl-grid px-2">
-                        <p class="text-base font-bold lg:text-xl">جعفر طیار</p>
-                        <p class="text-base font-bold whitespace-nowrap mt-1">
-                            SCRUM MASTER
-                        </p>
-                    </div>
-                </div>
+                {% endfor %}
+
             </div>
         </div>
         <div class="flex justify-center relative pt-10">
             <img src="{% static '' %}assets/images/linearbg.png" alt=""/>
-            <div class="absolute top-1/2 rtl-grid"
-            ">
+            <div class="absolute top-1/2 rtl-grid">
             <div class=" h-7 bg-line-custom"></div>
-            <div
-                    class="bg-footer  flex flex-col lg:flex-row lg:gap-8 lg:py-9 lg:px-36  justify-center px-7 rtl-grid ">
-                <div class="lg:basis-1/2">
-                    <div class="flex justify-center items-center">
-                        <img class="h-32 lg:h-40 " src="{% static '' %}assets/images/mainlogo.svg" alt=""/>
-                    </div>
-                    <div class="pb-8 lg:relative lg:-top-8   ">
-                        <p class="font-[kalame-regular] ">
-                            لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی
-                            آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و لورم ایپسوم یا
-                            طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در
-                            صنعت چاپ، صفحه‌آرایی و طراحی گرافیک
-                        </p>
-                    </div>
-                </div>
-                <div class="lg:basis-1/2 lg:pt-8  lg:relative lg:top-11">
-                    <div class=" ">
-                        <div>
-                            <h3 class="font-[kalame-bold] font-bold pb-2 ">تماس با ما</h3>
-                        </div>
-                        <div>
-                            <p class="font-[kalame-regular]">
-                                لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی
-                                آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک
-                            </p>
-                        </div>
-                    </div>
-                    <div class="flex flex-row  justify-between items-center py-10 lg:py-5  lg:items-start">
-                        <div>
-                            <h3 class="font-[kalame-bold]  font-bold  "> شماره تماس </h3>
-                        </div>
-                        <div>
-                            <p class="font-bold">021-222-2222</p>
-                            <p class="font-bold">021-222-2222</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-line-footer h-[65px]  flex justify-center items-center ">
-                <p class="font-[kalame-medium] text-white text-base rtl-grid">تمامی حقوق محفوظ است.</p>
-            </div>
+           {% include 'partials/footer.html' %}
         </div>
     </div>
 </div>
 </div>
-<script src="./index.js"></script>
+<script src="{% static '' %}index.js"></script>
 </body>
 
 </html>

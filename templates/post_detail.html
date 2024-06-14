@@ -1,0 +1,74 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,
+          initial-scale=1.0"/>
+    <title>{{ post }}</title>
+    <link href="{% static '' %}output.css" rel="stylesheet"/>
+</head>
+
+
+<body>
+<div class="h-screen bg-head-custom font-[kalame-bold]">
+    <img class="absolute top-0 right-0 w-96 " src="{% static '' %}assets/images/headbg.png" alt="">
+    <div class="flex flex-row px-4 py-3 sm:flex-row sm:items-center rtl-grid sm:justify-center sm:h-32">
+        <img id="burgermenu" class="w-10 z-0 sm:hidden" src="{% static '' %}assets/images/burgermenu.svg" alt="burger">
+        <img id="burgermenuopen" class="absolute top-2 right-3 w-12 z-0 hidden sm:hidden"
+             src="{% static '' %}assets/images/closeicon.svg" alt="burger">
+        <img class="custom-top-10 w-28 absolute left-1/2 center-cx sm:right-0 sm:left-auto sm:top-3"
+             src="{% static '' %}assets/images/mainlogo.svg" alt="">
+        <div id="listNavbar" class="hidden z-0 sm:flex bg-white px-3 py-2 rounded-3xl gap-4 rtl-grid">
+            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="/">خانه</a>
+            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="{% url 'core:contact_us' %}">ارتباط با ما</a>
+            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="/#blogs">مقالات</a>
+        </div>
+    </div>
+    <div
+            class="absolute max-[850px]:top-32 top-80 p-4 text-4xl right-20 max-[850px]:right-0 max-[850px]:text-2xl  w-screen">
+        <h1 class="text-black rtl-grid max-[1200px]:text-4xl text-c-big">مقالات</h1>
+        <p class="text-xl rtl-grid pt-8">مقالات کاربردی و علمی را در اینجا کشف کنید</p>
+    </div>
+    <div class="p-4 absolute bottom-20 max-[850px]:left-0 left-10">
+        <img src="{% static '' %}assets/images/bgarticles.png" alt="">
+    </div>
+</div>
+<div>
+    <div class="h-7 bg-line-custom"></div>
+    <h3 class="font-[kalame-bold] text-2xl mb-4 mt-8 text-center"> {{ post.title }} </h3>
+    <div class="flex flex-col ">
+        <div class="mx-7 border border-slate-400 p-3  rounded-md mt-8">
+            <div class="rtl-grid   ">
+                {{ post.content|safe }}
+                <div class="flex flex-row items-center rtl-grid justify-between text-download  ">
+                    <div>
+                        <span class=" rtl-grid "> تاریخ انتشار<span>{{ post.created|date:'d/m/Y' }}</span> </span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mt-8  mx-7 flex flex-row justify-around    items-center border bg-line-custom rounded-full rtl-grid min-h-[115px] lg:justify-start lg:gap-16   ">
+                <div><img class=" h-[100px] w-[100px] lg:ms-4 " src="{% static '' %}assets/images/imageuser.png" alt="">
+                </div>
+
+                <div class="text-white me-10 ">
+                    <h3 class="font-[kalame-medium] text-2xl lg:text-4xl  "> {{ post.author }}</h3>
+                    <p class="lg:text-2xl mt-2 "> {{ post.author.role }}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="flex justify-center relative pt-8 lg:pt-0  ">
+        <img class="" src="{% static '' %}assets/images/linearbg.png" alt=""/>
+        <div class="absolute top-1/2 rtl-grid">
+            <div class=" h-7 bg-line-custom "></div>
+            {% include 'partials/footer.html' %}
+        </div>
+    </div>
+</div>
+<script src="{% static '' %}index.js"></script>
+</body>
+
+</html>

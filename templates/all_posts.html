@@ -1,0 +1,68 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقالات</title>
+    <link href="{% static '' %}output.css" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="h-screen bg-head-custom font-[kalame-bold]">
+    <img class="absolute top-0 right-0 w-96" src="{% static '' %}assets/images/headbg.png" alt="">
+    <div class="flex flex-row px-4 py-3 sm:flex-row sm:items-center rtl-grid sm:justify-center sm:h-32">
+        <img id="burgermenu" class="w-10 z-0 sm:hidden" src="{% static '' %}assets/images/burgermenu.svg" alt="burger">
+        <img id="burgermenuopen" class="absolute top-2 right-3 w-12 z-0 hidden sm:hidden"
+             src="{% static '' %}assets/images/closeicon.svg" alt="burger">
+        <img class="custom-top-10 w-28 absolute left-1/2 center-cx sm:right-0 sm:left-auto sm:top-3"
+             src="{% static '' %}assets/images/mainlogo.svg" alt="">
+        <div id="listNavbar" class="hidden z-0 sm:flex bg-white px-3 py-2 rounded-3xl gap-4 rtl-grid">
+            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="/">خانه</a>
+            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="{% url 'core:contact_us' %}">ارتباط با ما</a>
+            <a class="px-4 py-1 rounded-3xl bg-head-custom" href="#">مقالات</a>
+        </div>
+    </div>
+    <div
+            class="absolute max-[850px]:top-32 top-80 p-4 text-4xl right-20 max-[850px]:right-0 max-[850px]:text-2xl  w-screen">
+        <h1 class="text-black rtl-grid max-[1200px]:text-4xl text-c-big">مقالات</h1>
+        <p class="text-xl rtl-grid pt-8">مقالات کاربردی و علمی را در اینجا کشف کنید</p>
+    </div>
+    <div class="p-4 absolute bottom-20 max-[850px]:left-0 left-10">
+        <img src="{% static '' %}assets/images/bgarticles.png" alt="">
+    </div>
+</div>
+<div class=" h-7 bg-line-custom"></div>
+<!-- body -->
+<div class="flex font-[kalame-bold] p-4 gap-8 py-10 justify-center flex-wrap">
+    <div class="bg-blue-200 rtl-grid p-2 w-60 rounded-md">
+        <p>تعداد بازدید های کل :</p>
+        <p class="text-4xl text-center p-3">{{ total_views }}</p>
+    </div>
+
+    <div class="bg-red-100 p-2 rtl-grid w-60 rounded-md">
+        <p>تعداد مقالات منتشر شده :</p>
+        <p class="text-4xl text-center p-3">{{ posts|length }}</p>
+    </div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-6 rtl-grid p-3 gap-2">
+    {% for post in posts %}
+        <div class="p-3 bg-slate-200 rounded-lg">
+            <div class="bg-blue-300 rounded-md h-20 flex items-center justify-center">
+                <img src="{{post.get_image_url}}" alt="">
+            </div>
+            <a href="{{ post.get_absolute_url }}"><h3 class="font-[kalame-bold] pt-2">{{ post.title }}</h3></a>
+            <p class="font-[kalame-regular] text-xs py-2">
+                {{ post.short_desc|truncatechars:20 }}
+                </p>
+        </div>
+    {% endfor %}
+
+</div>
+<!-- end body -->
+<div class=" h-7 bg-line-custom"></div>
+{% include 'partials/footer.html' %}
+<script src="{% static '' %}index.js"></script>
+</body>
+
+</html>

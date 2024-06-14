@@ -1,0 +1,103 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جزئیات - {{ profile }}</title>
+    <link href="{% static '' %}output.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="h-screen bg-head-custom font-[kalame-bold]">
+        <img class="absolute top-0 right-0" src="{% static '' %}assets/images/headbg.png" alt="">
+        <div class="flex flex-row px-4 py-3 sm:flex-row sm:items-center rtl-grid sm:justify-center sm:h-32">
+            <img id="burgermenu" class="w-10 z-0 sm:hidden" src="{% static '' %}assets/images/burgermenu.svg" alt="burger">
+            <img id="burgermenuopen" class="absolute top-2 right-3 w-12 z-0 hidden sm:hidden"
+                src="{% static '' %}assets/images/closeicon.svg" alt="burger">
+            <img class="custom-top-10 w-28 absolute left-1/2 center-cx sm:right-0 sm:left-auto sm:top-3"
+                src="{% static '' %}assets/images/mainlogo.svg" alt="">
+            <div id="listNavbar" class="hidden z-0 sm:flex bg-white px-3 py-2 rounded-3xl gap-4 rtl-grid">
+                <a class="px-4 py-1 rounded-3xl bg-head-custom" href="/">خانه</a>
+                <a class="px-4 py-1 rounded-3xl bg-head-custom" href="{% url 'core:contact_us' %}">ارتباط با ما</a>
+                <a class="px-4 py-1 rounded-3xl bg-head-custom" href="/#blogs">مقالات</a>
+            </div>
+        </div>
+        <div
+            class="absolute max-[1200px]:w-96 max-[850px]:top-32 top-80 p-4 text-4xl right-20 max-[850px]:right-0 max-[850px]:text-2xl">
+            <h1 class="text-black rtl-grid max-[1200px]:text-4xl text-c-big">ارتباط با ما</h1>
+            <p class="text-xl rtl-grid pt-8"> ایده‌هایتان را با ما به اشتراک بگذارید!</p>
+        </div>
+        <div class="p-4 absolute bottom-20 max-[850px]:left-0 left-10">
+            <img src="{% static '' %}assets/images/bgcallus.png" alt="">
+        </div>
+    </div>
+    <div class=" h-7 bg-line-custom"></div>
+    <div class="flex sm:flex-row-reverse flex-col items-center justify-center">
+        <div class="p-10 flex flex-col items-center justify-center sm:w-1/2">
+            <div
+                class="bg-card flex flex-row-reverse items-center px-6 py-5 w-fit rounded-3xl font-[kalame-bold] w-full">
+                <img class="w-20 sm:w-36 rounded-3xl" src="{{ profile.get_image_url }}" alt="user">
+                <div class="p-2">
+                    <h2 class="sm:text-3xl rtl-grid pb-2">{{ profile}}</h2>
+                    <p class="sm:text-2xl">{{ profile.role }}</p>
+                </div>
+            </div>
+            <div class="font-[kalame-regular] rtl-grid">
+                <h2 class="text-3xl font-[kalame-bold] px-7">معرفی</h2>
+                <p class="pt-2 px-7">
+                    {{ profile.bio|linebreaks }}
+                </p>
+            </div>
+        </div>
+        <div class="p-10 pt-0 sm:pt-10 flex flex-col gap-2">
+            <div class="font-[kalame-regular] flex flex-col rounded-3xl p-10 pb-4 box-border gap-4 border-2">
+                <div class="flex rtl-grid justify-between border-b-2 pb-2">
+                    <p class="font-[kalame-bold]">سن</p>
+                    <p>{{ profile.age }} سال</p>
+                </div>
+                <div class="flex rtl-grid justify-between border-b-2 pb-2">
+                    <p class="font-[kalame-bold]">جنسیت</p>
+                    <p>{{ profile.get_gender_display }}</p>
+                </div>
+                <div class="flex flex-col rtl-grid justify-between border-b-2 pb-2">
+                    <p class="font-[kalame-bold]">سوابق شغلی</p>
+                    {% for work_history in work_histories %}
+                    <div class="px-4">
+                        <p>{{ work_history.company }}-{{ work_history.title }}</p>
+                        <p dir="rtl">از {{ work_history.start_date|date:'Y-M' }} تا {{ work_history.end_date|date:'Y-M' }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="flex rtl-grid flex-col justify-between gap-2">
+                    <p class="font-[kalame-bold]">مهارت ها</p>
+                    <div class="flex justify-between gap-2">
+                        {% for skill in profile.skills.all %}
+                        <p class="bg-s-card px-4 py-2 rounded-lg">{{ skill }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="font-[kalame-regular] flex flex-col rounded-3xl p-10 pb-4 box-border gap-4 border-2">
+                {% for social in socials %}
+
+
+                <div class="flex rtl-grid justify-between ">
+                    <p class="font-[kalame-bold]">{{ social.title }}</p>
+                    <div class="flex flex-row-reverse gap-1">
+                        <img class="w-10 h-10" src="{{social.get_image_url}}" alt="">
+                        <a href="{{ social.link }}"><p>{{ social.social_id }}@</p></a>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <div class=" h-7 bg-line-custom"></div>
+
+    {% include 'partials/footer.html' %}
+    <script src="{% static '' %}index.js"></script>
+</body>
+
+</html>

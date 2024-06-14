@@ -1,0 +1,38 @@
+{% load static %}
+
+ <div class="bg-footer  flex flex-col lg:flex-row lg:gap-8 lg:py-9 lg:px-36  justify-center px-7 rtl-grid ">
+                <div class="lg:basis-1/2">
+                    <div class="flex justify-center items-center">
+                        <img class="h-32 lg:h-40 " src="{% static '' %}assets/images/mainlogo.svg" alt=""/>
+                    </div>
+                    <div class="pb-8 lg:relative lg:-top-8   ">
+                        <p class="font-[kalame-regular] ">
+                            {{ front_setting.footer_text|linebreaks }}
+                        </p>
+                    </div>
+                </div>
+                <div class="lg:basis-1/2 lg:pt-8  lg:relative lg:top-11">
+                    <div class=" ">
+                        <div>
+                            <h3 class="font-[kalame-bold] font-bold pb-2 ">تماس با ما</h3>
+                        </div>
+                        <div>
+                            <p class="font-[kalame-regular]">
+                                {{ front_setting.contact_us_footer|linebreaks }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex flex-row  justify-between items-center py-10 lg:py-5  lg:items-start">
+                        <div>
+                            <h3 class="font-[kalame-bold]  font-bold  "> شماره تماس </h3>
+                        </div>
+                        <div>
+                            <p class="font-bold">{{ front_setting.phone_1 }}</p>
+                            <p class="font-bold">{{ front_setting.phone_2 }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-line-footer h-[65px]  flex justify-center items-center ">
+                <p class="font-[kalame-medium] text-white text-base rtl-grid">تمامی حقوق محفوظ است.</p>
+            </div>
