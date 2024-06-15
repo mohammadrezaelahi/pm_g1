@@ -95,10 +95,12 @@ class UserSocial(models.Model):
                                              )
 
     def get_image_url(self):
-        if self.svg.svg:
-            return self.svg.svg.url
-        return None
-
+        try:
+            if self.svg.svg:
+                return self.svg.svg.url
+            return " "
+        except Exception:
+            return " "
     def __str__(self):
         return f"{self.title} of {self.user} "
 
@@ -118,9 +120,12 @@ class SocialMedia(models.Model):
                             on_delete=models.SET_NULL, )
 
     def get_image_url(self):
-        if self.svg.svg:
-            return self.svg.svg.url
-        return None
+        try:
+            if self.svg.svg:
+                return self.svg.svg.url
+            return ' '
+        except Exception:
+            return ' '
 
     def __str__(self):
         return f"{self.title} of base site"
