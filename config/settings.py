@@ -137,3 +137,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ckeditor settings
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CSRF_TRUSTED_ORIGINS = ["http://localhost:8000", "https://blog.rashx.ir"]
