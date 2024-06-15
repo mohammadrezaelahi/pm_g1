@@ -5,6 +5,15 @@ from django.urls import reverse_lazy
 User = get_user_model()
 
 
+class Svg(models.Model):
+    name = models.CharField(max_length=100)
+    text = models.TextField()
+    svg = models.FileField(upload_to='svgs', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Profile(models.Model):
     GENDER_CHOICES = (
         ('M', 'آقا'),
@@ -73,7 +82,8 @@ class UserSocial(models.Model):
                                  help_text="social media id")
     link = models.CharField(max_length=500, blank=True, null=True, verbose_name="link",
                             help_text="social media link")
-    logo = models.ImageField(upload_to='social_media/', blank=True, null=True, verbose_name="logo", )
+    svg = models.ForeignKey(Svg, related_name='user_social_logo', blank=True, null=True, verbose_name="logo",
+                            on_delete=models.SET_NULL, )
 
     order = models.PositiveSmallIntegerField(verbose_name="icon order",
                                              default=1,
@@ -81,13 +91,14 @@ class UserSocial(models.Model):
                                              help_text="this number is the position of icon on front"
                                              )
 
+    def get_image_url(self):
+        if self.svg.svg:
+            return self.svg.svg.url
+        return None
+
+
     def __str__(self):
         return self.title
-
-    def get_image_url(self):
-        if self.logo:
-            return self.logo.url
-        return None
 
 
 class SocialMedia(models.Model):
@@ -95,21 +106,23 @@ class SocialMedia(models.Model):
                              help_text="social media title")
     link = models.CharField(max_length=500, blank=True, null=True, verbose_name="link",
                             help_text="social media link")
-    logo = models.ImageField(upload_to='social_media/', blank=True, null=True, verbose_name="logo", )
 
     order = models.PositiveSmallIntegerField(verbose_name="icon order",
                                              default=1,
                                              blank=True,
                                              help_text="this number is the position of icon on front"
                                              )
+    svg = models.ForeignKey(Svg, related_name='social_logo', blank=True, null=True, verbose_name="logo",
+                            on_delete=models.SET_NULL, )
+
+
+    def get_image_url(self):
+        if self.svg.svg:
+            return self.svg.svg.url
+        return None
 
     def __str__(self):
         return self.title
-
-    def get_image_url(self):
-        if self.logo:
-            return self.logo.url
-        return None
 
     class Meta:
         ordering = ['order', ]

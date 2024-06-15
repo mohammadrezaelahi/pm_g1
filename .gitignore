@@ -1,3 +1,5 @@
 venv
 front_codes
 .idea
+db.sqlite3
+media

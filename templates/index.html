@@ -25,7 +25,7 @@
             <a class="px-4 py-1 rounded-3xl bg-head-custom" href="#blogs">مقالات</a>
         </div>
     </div>
-    <div class="absolute max-[1200px]:w-96 top-80 p-4 text-4xl right-20 max-[850px]:right-0 max-[850px]:text-2xl">
+    <div class="absolute max-[1200px]:w-96 top-75 lg:top-80 p-4 text-4xl right-20 max-[850px]:right-0 max-[850px]:text-2xl">
         <h1 class="text-black rtl-grid">هر آنچه در بیزنس خود به آن نیاز دارید اینجاست !!</h1>
         <div
                 class="flex items-center justify-start font-[kalame-regular] flex-row-reverse gap-1 bg-button w-fit p-1 px-2 rounded-full mt-8">
@@ -103,20 +103,122 @@
             </div>
         </div>
         <div class="flex flex-row lg:gap-7 gap-3 overflow-scroll overflow-y-hidden mt-7 lg:pb-4">
-            {% for skill in skills %}
-                <div
-                        class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
-                    <div class="">
-                        <img class="h-[57px] lg:h-[88px] rounded-2xl"
-                             src="{{ skill.get_image_url }}"
-                             alt=""/>
-                    </div>
-                    <p class="text-base mt-4 font-bold lg:text-xl">{{ skill.name }}</p>
+            <div
+                    class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
+                <div class="">
+                    <img class="h-[57px] lg:h-[88px] rounded-2xl" src="{% static '' %}assets/images/icons/logos--javascript.svg"
+                         alt=""/>
                 </div>
-            {% endfor %}
+                <p class="text-base mt-4 font-bold lg:text-xl">Javascript</p>
+            </div>
+            <div
+                    class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-h-[200px] lg:min-w-[200px]">
+                <div class="">
+                    <img class="h-[57px] lg:h-[88px] rounded-2xl"
+                         src="{% static '' %}assets/images/icons/skill-icons--react-dark.svg" alt=""/>
+                </div>
+                <p class="text-base mt-4 font-bold lg:text-xl">React</p>
+            </div>
+            <div
+                    class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-h-[200px] lg:min-w-[200px]">
+                <div class="">
+                    <img class="h-[57px] lg:h-[88px] rounded-2xl"
+                         src="{% static '' %}assets/images/icons/skill-icons--typescript.svg" alt=""/>
+                </div>
+                <p class="text-base mt-4 font-bold lg:text-xl">Typescript</p>
+            </div>
+            <div
+                    class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-h-[200px] lg:min-w-[200px]">
+                <div class="">
+                    <img class="h-[57px] lg:h-[88px] rounded-2xl"
+                         src="{% static '' %}assets/images/icons/devicon--photoshop.svg" alt=""/>
+                </div>
+                <p class="text-base mt-4 font-bold lg:text-xl">Adobe Photoshop</p>
+            </div>
+            <div
+                    class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-h-[200px] lg:min-w-[200px]">
+                <div class="">
+                    <img class="h-[57px] lg:h-[88px] rounded-2xl" src="{% static '' %}assets/images/icons/logos--adobe-xd.svg"
+                         alt=""/>
+                </div>
+                <p class="text-base mt-4 font-bold lg:text-xl">Adobe Xd</p>
+            </div>
+            <div
+                    class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-h-[200px] lg:min-w-[200px]">
+                <div class="">
+                    <img class="h-[57px] lg:h-[88px] rounded-2xl"
+                         src="{% static '' %}assets/images/icons/logos--django-icon.svg" alt=""/>
+                </div>
+                <p class="text-base mt-4 font-bold lg:text-xl">Django</p>
+            </div>
 
+            <div
+                    class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-h-[200px] lg:min-w-[200px]">
+                <div class="">
+                    <img class="h-[57px] lg:h-[88px] rounded-2xl" src="{% static '' %}assets/images/icons/skill-icons--css.svg"
+                         alt=""/>
+                </div>
+                <p class="text-base mt-4 font-bold lg:text-xl">Css</p>
+            </div>
+            <div
+                    class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-h-[200px] lg:min-w-[200px]">
+                <div class="">
+                    <img class="h-[57px] lg:h-[88px] rounded-2xl"
+                         src="{% static '' %}assets/images/icons/skill-icons--figma-dark.svg" alt=""/>
+                </div>
+                <p class="text-base mt-4 font-bold lg:text-xl">Figma</p>
+            </div>
+            <div
+                    class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-h-[200px] lg:min-w-[200px]">
+                <div class="">
+                    <img class="h-[57px] lg:h-[88px] rounded-2xl" src="{% static '' %}assets/images/icons/skill-icons--html.svg"
+                         alt=""/>
+                </div>
+                <p class="text-base mt-4 font-bold lg:text-xl">Html</p>
+            </div>
+            <div
+                    class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-h-[200px] lg:min-w-[200px]">
+                <div class="">
+                    <img class="h-[57px] lg:h-[88px] rounded-2xl"
+                         src="{% static '' %}assets/images/icons/skill-icons--mongodb.svg" alt=""/>
+                </div>
+                <p class="text-base mt-4 font-bold lg:text-xl">Mongodb</p>
+            </div>
+            <div
+                    class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-h-[200px] lg:min-w-[200px]">
+                <div class="">
+                    <img class="h-[57px] lg:h-[88px] rounded-2xl"
+                         src="{% static '' %}assets/images/icons/skill-icons--nodejs-dark.svg" alt=""/>
+                </div>
+                <p class="text-base mt-4 font-bold lg:text-xl">Nodejs</p>
+            </div>
+            <div
+                    class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-h-[200px] lg:min-w-[200px]">
+                <div class="">
+                    <img class="h-[57px] lg:h-[88px] rounded-2xl"
+                         src="{% static '' %}assets/images/icons/skill-icons--postgresql-dark.svg" alt=""/>
+                </div>
+                <p class="text-base mt-4 font-bold lg:text-xl">Sql</p>
+            </div>
+            <div
+                    class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-h-[200px] lg:min-w-[200px]">
+                <div class="">
+                    <img class="h-[57px] lg:h-[88px] rounded-2xl"
+                         src="{% static '' %}assets/images/icons/skill-icons--postman.svg" alt=""/>
+                </div>
+                <p class="text-base mt-4 font-bold lg:text-xl">Postman</p>
+            </div>
+            <div
+                    class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-h-[200px] lg:min-w-[200px]">
+                <div class="">
+                    <img class="h-[57px] lg:h-[88px] rounded-2xl"
+                         src="{% static '' %}assets/images/icons/skill-icons--python-dark.svg" alt=""/>
+                </div>
+                <p class="text-base mt-4 font-bold lg:text-xl">Python</p>
+            </div>
         </div>
-        <div class="flex justify-center flex-row lg:pt-24 pt-16 rtl-grid"  id="blogs">
+
+        <div class="flex justify-center flex-row lg:pt-24 pt-16 rtl-grid" id="blogs">
             <div>
                 <h3 class="font-[kalame-bold] text-xl text-center lg:text-3xl">
                     مقالات
@@ -142,11 +244,12 @@
                         class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
                     <div class="p-2">
                         <img class="h-[82px] w-[124px] lg:h-[88px] rounded-2xl"
-                             src="{{post.get_image_url}}"
+                             src="{{ post.get_image_url }}"
                              alt="{{ post.title }}"/>
                     </div>
                     <div class="rtl-grid px-2 pb-2">
-                        <a href="{{ post.get_absolute_url }}"><p class="text-base font-bold lg:text-xl">{{ post.title }}</p></a>
+                        <a href="{{ post.get_absolute_url }}"><p
+                                class="text-base font-bold lg:text-xl">{{ post.title }}</p></a>
                         <p class="text-xs whitespace-nowrap mt-1">
                             {{ post.short_desc|truncatechars:20 }}
                         </p>
@@ -163,20 +266,21 @@
             </div>
             <div class="flex flex-wrap gap-2 lg:gap-6 px-7 justify-center font-[kalame-bold] ">
                 {% for profile in profiles %}
-                <div
-                        class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center   items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
-                    <div class="">
-                        <img class="h-[82px] w-[124px] lg:h-[88px] rounded-lg"
-                             src="{{profile.get_image_url}}"
-                             alt=""/>
+                    <div
+                            class="h-[148px] min-w-[148px] bg-[#BFC6DC] flex flex-col justify-center   items-center rounded-1xl lg:min-w-[200px] lg:min-h-[200px]">
+                        <div class="">
+                            <img class="h-[82px] w-[124px] lg:h-[88px] rounded-lg"
+                                 src="{{ profile.get_image_url }}"
+                                 alt=""/>
+                        </div>
+                        <div class="rtl-grid px-2">
+                            <a href="{{ profile.get_absolute_url }}"><p
+                                    class="text-base font-bold lg:text-xl">{{ profile.full_name }}</p></a>
+                            <p class="text-base font-bold whitespace-nowrap mt-1">
+                                {{ profile.role }}
+                            </p>
+                        </div>
                     </div>
-                    <div class="rtl-grid px-2">
-                        <a href="{{ profile.get_absolute_url }}"><p class="text-base font-bold lg:text-xl">{{ profile.full_name}}</p></a>
-                        <p class="text-base font-bold whitespace-nowrap mt-1">
-                            {{ profile.role }}
-                        </p>
-                    </div>
-                </div>
                 {% endfor %}
 
             </div>
@@ -184,11 +288,11 @@
         <div class="flex justify-center relative pt-10">
             <img src="{% static '' %}assets/images/linearbg.png" alt=""/>
             <div class="absolute top-1/2 rtl-grid">
-            <div class=" h-7 bg-line-custom"></div>
-           {% include 'partials/footer.html' %}
+                <div class=" h-7 bg-line-custom"></div>
+                {% include 'partials/footer.html' %}
+            </div>
         </div>
     </div>
-</div>
 </div>
 <script src="{% static '' %}index.js"></script>
 </body>

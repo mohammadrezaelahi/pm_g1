@@ -76,7 +76,8 @@
             <p>شبکه های اجتماعی ما </p>
             <div class="flex flex-row   justify-center    gap-3 ">
                 {% for social in socials %}
-                    <a href="{{ social.link }}"><img src="{{ social.get_image_url }}" alt="{{ social }}" class="w-10 h-10  "></a>
+                    <a href="{{ social.link }}"><img src="{{ social.get_image_url }}" alt="{{ social }}"
+                                                     class="w-10 h-10  "></a>
                 {% endfor %}
 
             </div>
@@ -91,8 +92,8 @@
     </div>
 
     <div class=" h-7 bg-line-custom w-full"></div>
-    {% include 'partials/footer.html' %}
 </div>
+{% include 'partials/footer.html' %}
 <script src="{% static '' %}index.js"></script>
 </body>
 

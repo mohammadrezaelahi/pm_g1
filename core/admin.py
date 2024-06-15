@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from core.models import Profile, FrontSetting, Skill, WorkHistory, UserSocial, SocialMedia
+from core.models import Profile, FrontSetting, Skill, WorkHistory, UserSocial, SocialMedia, Svg
 
 
 # Register your models here.
@@ -15,3 +15,4 @@ admin.site.register(Skill)
 admin.site.register(WorkHistory)
 admin.site.register(UserSocial)
 admin.site.register(SocialMedia)
+admin.site.register(Svg)
