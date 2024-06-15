@@ -71,6 +71,9 @@ class WorkHistory(models.Model):
     start_date = models.DateField(verbose_name="start date", help_text="start date", blank=True, null=True)
     end_date = models.DateField(verbose_name="end date", help_text="end date", blank=True, null=True)
 
+    def __str__(self):
+        return f"{self.title} - {self.user}"
+
 
 class UserSocial(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='ducker_socials',
@@ -96,9 +99,8 @@ class UserSocial(models.Model):
             return self.svg.svg.url
         return None
 
-
     def __str__(self):
-        return self.title
+        return f"{self.title} of {self.user} "
 
 
 class SocialMedia(models.Model):
@@ -115,14 +117,13 @@ class SocialMedia(models.Model):
     svg = models.ForeignKey(Svg, related_name='social_logo', blank=True, null=True, verbose_name="logo",
                             on_delete=models.SET_NULL, )
 
-
     def get_image_url(self):
         if self.svg.svg:
             return self.svg.svg.url
         return None
 
     def __str__(self):
-        return self.title
+        return f"{self.title} of base site"
 
     class Meta:
         ordering = ['order', ]
